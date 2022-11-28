@@ -9,7 +9,7 @@ namespace MonoSnake
 {
     public class GameRoot : Game
     {
-        private GraphicsDeviceManager _graphics;
+        private GraphicsDeviceManager _graphicsDeviceManager;
         private SpriteBatch _spriteBatch;
 
         private Texture2D _texture;
@@ -20,7 +20,8 @@ namespace MonoSnake
 
         public GameRoot()
         {
-            _graphics = new GraphicsDeviceManager(this);
+            _graphicsDeviceManager = new GraphicsDeviceManager(this);
+            
             Content.RootDirectory = "Content";
             IsMouseVisible = true;
         }
@@ -30,7 +31,7 @@ namespace MonoSnake
             _block = new Block(new Vector2(0, 0), 10, 10, Color.Azure);
             _snake = new Snake(new Vector2(100, 100), 20, 5);
             _fruit = FruitFactory.SpawnFruit();
-            
+
             base.Initialize();
         }
 
