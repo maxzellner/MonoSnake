@@ -58,6 +58,7 @@ namespace MonoSnake
             {
                 _snake.Length++;
                 _fruit = FruitFactory.SpawnFruit();
+                Window.Title = $"Score : {_snake.Length}";
             }
 
             base.Update(gameTime);
@@ -69,9 +70,9 @@ namespace MonoSnake
 
             _spriteBatch.Begin();
 
-            _spriteBatch.Draw(_texture, _fruit.Rectangle, _block.Color);
-
             _snake.Draw(_spriteBatch, _texture);
+
+            _spriteBatch.Draw(_texture, _fruit.Rectangle, _block.Color);
 
             _spriteBatch.End();
             
