@@ -7,11 +7,12 @@ using Microsoft.Xna.Framework;
 
 namespace MonoSnake.Entities
 {
-    internal class Block
+    public class Block
     {
-        private Vector2 _position;
         private int _w;
         private int _h;
+        private Vector2 _position;
+        public Vector2 Position => _position;
         public Rectangle Rectangle
         {
             get
@@ -27,6 +28,14 @@ namespace MonoSnake.Entities
             _w = w;
             _h = h;
             Color = color;
+        }
+
+        public Block(Block block)
+        {
+            _position = block._position;
+            _w = block._w;
+            _h = block._h;
+            Color = block.Color;
         }
 
         public void Move(Direction direction, int pixels = 1)
@@ -48,6 +57,10 @@ namespace MonoSnake.Entities
                 default:
                     break;
             }
+        }
+        public void Move(Vector2 newPosition)
+        {
+            _position = newPosition;
         }
     }
 }

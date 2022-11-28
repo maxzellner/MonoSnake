@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace MonoSnake.Entities
 {
-    internal class Entity
+    abstract class Entity
     {
         SpriteBatch _spriteBatch;
         Texture2D _texture;
